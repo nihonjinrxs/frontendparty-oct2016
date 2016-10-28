@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<link rel="import" href="../bower_components/polymer/polymer.html"></link>
+<link rel="import" href="../bower_components/google-map/google-map.html"></link>
+<link rel="import" href="../bower_components/google-map/google-map-marker.html"></link>
+<dom-module id="google-map-polymer">
+  <template>
+    <style>
+      :host {
+        --google-map-height: 400px;
+        height: var(--google-map-height);
+        position: relative;
+        font-family: 'Roboto', Arial, sans-serif;
+      }
+      .google-map-container { border: 1px dashed #ccc; }
+      google-map { height: var(--google-map-height); }
+      .google-map-overlay {
+        position: absolute;
+        background-color: white;
+        opacity: 0.8;
+        top: 0;
+        right: 0;
+        border-bottom-left-radius: 8px;
+        padding: 10px;
+      }
+      .map-marker-title {
+        color: #2DB0F3;
+        font-weight: bold;
+      }
+      .coords {
+        color: #E28964;
+      }
+      ::slotted(*) {
+        width: 100%;
+        text-align: center;
+      }
+    </style>
+    <div class="google-map-container">
+    <slot>
+      <p>
+        Map to
+        <span class="map-marker-title">[[markertitle]]</span>
+        <span class="coords">([[latitude]]&deg;, [[longitude]]&deg;)</span>
+      </p>
+    </slot>
+    <google-map latitude=[[latitude]]
+                longitude=[[longitude]]
+                zoom=[[zoom]]
+                api-key=[[apikey]]>
+      <google-map-marker latitude=[[latitude]]
+                         longitude=[[longitude]]
+                         draggable="false"
+                         title=[[markertitle]]>
+      </google-map-marker>
+      <div class="google-map-overlay">
+        [[_renderOverlay(markertitle)]]
+      </div>
+    </google-map>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: 'google-map-polymer',
+      properties: {
+        latitude: Number,
+        longitude: Number,
+        zoom: { type: Number, value: 10 },
+        apikey: String,
+        markertitle: { type: String, value: null }
+      },
+      _renderOverlay: function(markertitle) {
+        if (!markertitle) {
+          this.$$("div.google-map-overlay").style.display = "none";
+          return "";
+        }
+        return "Map of " + markertitle;
+      }
+    });
+  </script>
+</dom-module>

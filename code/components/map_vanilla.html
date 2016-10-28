@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <template id="mapComponentTemplate">
+    <style>
+      #map {
+       height: 400px;
+       width: 100%;
+       position: relative;
+      }
+      .container {
+        font-family: 'Roboto', Arial, sans-serif;
+        border: 1px dashed #ccc;
+      }
+      .container p:first-child {
+        width: 100%;
+        text-align: center;
+      }
+      .google-map-overlay {
+        position: absolute;
+        background-color: white;
+        opacity: 0.8;
+        top: 0;
+        right: 0;
+        border-bottom-left-radius: 8px;
+        padding: 10px;
+        z-index: 999999;
+      }
+      .map-marker-title {
+        color: #2DB0F3;
+        font-weight: bold;
+      }
+      .coords {
+        color: #E28964;
+      }
+    </style>
+    <div class="container">
+      <p>
+        Map to
+        <span class="map-marker-title">#FrontEndParty!!!</span>
+        <span class="coords">(29.9529817&deg;, -90.0753115&deg;)</span>
+      </p>
+      <div id="map">
+        <!-- This doesn't display, overwritten by the Google Maps script.
+             So, we need to do gymnastics in JavaScript... -->
+        <div class="google-map-overlay">
+          Map of #FrontEndParty!!!
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA09E0nsWODtZuV7ugwnep1RTePFAY20aM&callback=initMap">
+    </script>
+  </template>
+  <script>
+    // Custom Elements v1 spec version
+    class MapComponent extends HTMLElement {
+      connectedCallback() {
+        var importDoc = document.currentScript.ownerDocument;
+        var shadow = this.attachShadow({ mode: 'open' });
+        var template = importDoc.querySelector('#mapComponentTemplate');
+        shadow.appendChild(template.content.cloneNode(true));
+      }
+    }
+
+    initMap = function() {
+      var loc = {lat: 29.9529817, lng: -90.0753115};
+      var container = document.getElementById('map');
+      // Not working -- container ends up null, shadow DOM boundary!!!
+      // Certainly debuggable, but why?
+      var map = new google.maps.Map(
+        container,
+        { zoom: 17, center: loc }
+      );
+      var marker = new google.maps.Marker({
+        position: loc,
+        map: map
+      });
+    }
+
+    customElements.define("map-component", MapComponent);
+
+    /*
+    // Pre-v1 version looks something like...:
+    (function() {
+      var importDoc = document.currentScript.ownerDocument;
+      var mapComponentPrototype = Object.create(HTMLElement.prototype);
+      mapComponentPrototype.createdCallback = function() {
+        var shadow = this.createShadowRoot();
+        var template = importDoc.querySelector('#mapComponentTemplate');
+        shadow.appendChild(template.content.cloneNode(true));
+      };
+      document.registerElement("map-component", {
+        prototype: mapComponentPrototype
+      });
+    })();
+    */
+  </script>

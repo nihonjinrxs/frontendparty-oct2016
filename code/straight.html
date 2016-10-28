@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+        position: relative;
+       }
+       .container {
+         font-family: 'Roboto', Arial, sans-serif;
+         border: 1px dashed #ccc;
+       }
+       .container p:first-child {
+         width: 100%;
+         text-align: center;
+       }
+       .google-map-overlay {
+         position: absolute;
+         background-color: white;
+         opacity: 0.8;
+         top: 0;
+         right: 0;
+         border-bottom-left-radius: 8px;
+         padding: 10px;
+         z-index: 999999;
+       }
+       .map-marker-title {
+         color: #2DB0F3;
+         font-weight: bold;
+       }
+       .coords {
+         color: #E28964;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo: Straight HTML/JavaScript</h3>
+    <div class="container">
+      <p>
+        Map to
+        <span class="map-marker-title">#FrontEndParty!!!</span>
+        <span class="coords">(29.9529817&deg;, -90.0753115&deg;)</span>
+      </p>
+      <div id="map">
+        <!-- This doesn't display, overwritten by the Google Maps script.
+             So, we need to do gymnastics in JavaScript... -->
+        <div class="google-map-overlay">
+          Map of #FrontEndParty!!!
+        </div>
+      </div>
+    </div>
+    <script>
+      function initMap() {
+        const supportsShadowDOMv1 = !!HTMLElement.prototype.attachShadow;
+        var loc = {lat: 29.9529817, lng: -90.0753115};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 17,
+          center: loc
+        });
+        var marker = new google.maps.Marker({
+          position: loc,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA09E0nsWODtZuV7ugwnep1RTePFAY20aM&callback=initMap">
+    </script>
+  </body>
+</html>

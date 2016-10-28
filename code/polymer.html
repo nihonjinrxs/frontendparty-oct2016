@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="import" href="bower_components/polymer/polymer.html"></link>
+    <link rel="import" href="bower_components/google-map/google-map.html"></link>
+    <link rel="import" href="bower_components/google-map/google-map-marker.html"></link>
+    <style>
+      google-map { height: 400px; }
+      .container {
+        font-family: 'Roboto', Arial, sans-serif;
+        border: 1px dashed #ccc;
+      }
+      .container p:first-child {
+        width: 100%;
+        text-align: center;
+      }
+      .google-map-overlay {
+        position: absolute;
+        background-color: white;
+        opacity: 0.8;
+        top: 0;
+        right: 0;
+        border-bottom-left-radius: 8px;
+        padding: 10px;
+      }
+      .map-marker-title {
+        color: #2DB0F3;
+        font-weight: bold;
+      }
+      .coords {
+        color: #E28964;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo: Polymer</h3>
+    <div class="container">
+    <p>
+      Map to
+      <span class="map-marker-title">#FrontEndParty!!!</span>
+      <span class="coords">(29.9529817&deg;, -90.0753115&deg;)</span>
+    </p>
+    <google-map latitude="29.9529817"
+                longitude="-90.0753115"
+                zoom="17"
+                api-key="AIzaSyA09E0nsWODtZuV7ugwnep1RTePFAY20aM">
+      <google-map-marker latitude="29.9529817"
+                         longitude="-90.0753115"
+                         draggable="false"
+                         title="#FrontEndParty!!!">
+      </google-map-marker>
+      <div class="google-map-overlay">
+        Map of #FrontEndParty!!!
+      </div>
+    </google-map>
+    </div>
+  </body>
+</html>
