@@ -6,23 +6,23 @@ This repo contains all code examples and slide decks for the talk.  Pull request
 
 Two versions:
 
-* PDF ([slides/webcomponents.pdf](/nihonjinrxs/frontendparty-oct2016/blob/master/slides/webcomponents.pdf))
-* Apple Keynote ([slides/webcomponents.key](/nihonjinrxs/frontendparty-oct2016/blob/master/slides/webcomponents.key))
+* PDF ([slides/webcomponents.pdf](https://github.com/nihonjinrxs/frontendparty-oct2016/blob/master/slides/webcomponents.pdf))
+* Apple Keynote ([slides/webcomponents.key](https://github.com/nihonjinrxs/frontendparty-oct2016/blob/master/slides/webcomponents.key))
 
 ## Code
 
 * Strait HTML and JavaScript:
-    * [code/straight.html](/nihonjinrxs/frontendparty-oct2016/blob/master/code/straight.html)
+    * [code/straight.html](https://github.com/nihonjinrxs/frontendparty-oct2016/blob/master/code/straight.html)
 * Vanilla JavaScript Web Components (not quite working):
-    * [code/vanilla.html](/nihonjinrxs/frontendparty-oct2016/blob/master/code/vanilla.html)
-    * [code/components/map-vanilla.html](/nihonjinrxs/frontendparty-oct2016/blob/master/code/components/map-vanilla.html)
+    * [code/vanilla.html](https://github.com/nihonjinrxs/frontendparty-oct2016/blob/master/code/vanilla.html)
+    * [code/components/map-vanilla.html](https://github.com/nihonjinrxs/frontendparty-oct2016/blob/master/code/components/map-vanilla.html)
 * Polymer Web Components (without custom component):
-    * [code/polymer.html](/nihonjinrxs/frontendparty-oct2016/blob/master/code/polymer.html)
-    * [code/bower-components/](/nihonjinrxs/frontendparty-oct2016/blob/master/code/bower-components/)
+    * [code/polymer.html](https://github.com/nihonjinrxs/frontendparty-oct2016/blob/master/code/polymer.html)
+    * [code/bower-components/](https://github.com/nihonjinrxs/frontendparty-oct2016/blob/master/code/bower-components/)
 * Polymer Web Components (with custom component):
-    * [code/polymer-custom.html](/nihonjinrxs/frontendparty-oct2016/blob/master/code/polymer-custom.html)
-    * [code/components/google-map-polymer.html](/nihonjinrxs/frontendparty-oct2016/blob/master/code/components/google-map-polymer.html)
-    * [code/bower-components/](/nihonjinrxs/frontendparty-oct2016/blob/master/code/bower-components/)
+    * [code/polymer-custom.html](https://github.com/nihonjinrxs/frontendparty-oct2016/blob/master/code/polymer-custom.html)
+    * [code/components/google-map-polymer.html](https://github.com/nihonjinrxs/frontendparty-oct2016/blob/master/code/components/google-map-polymer.html)
+    * [code/bower-components/](https://github.com/nihonjinrxs/frontendparty-oct2016/blob/master/code/bower-components/)
 
 ## License
 
